@@ -2,6 +2,7 @@
 XY2-100 High Level Analyzer for Saleae Logic 2
 This repository contains a Saleae High Level Analyzer (HLA) for decoding the XY2-100 serial protocol used for laser galvanometer scanners.
 
+![Logic 2 screenshot](/resources/analyzer.png)
 ## Protocol Overview
 The XY2-100 protocol is a 20-bit serial protocol for transmitting X, Y, or Z position data. It has two main modes:
 
