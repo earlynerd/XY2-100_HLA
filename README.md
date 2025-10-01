@@ -25,21 +25,23 @@ Click the "+" button and add a Simple Parallel analyzer.
 
 Configure the parallel analyzer settings as follows:
 
-Input Channels:
+Clock: Select your CLK+ signal line.
 
-CLK: Your XY2-100 CLK channel.
+Data Lines: This is the most important step. You must add the Data and SYNC lines in the exact order shown below. You can add up to 4 lines for this analyzer.
 
-D0: Your XY2-100 Data channel.
+D0: Select your Data_X+ signal.
 
-D1: Your XY2-100 SYNC channel.
+D1: Select your Data_Y+ signal.
 
-(You can leave the other D channels unassigned).
+D2: Select your Data_Z+ signal (if you are using it).
 
-Settings:
+D3: Select your SYNC+ signal.
 
-Number of Data Lines: 2
+Data is Valid: Set to On falling edge of clock.
 
-Clock Edge: Falling Edge (Data is valid on clock trailing edge).
+You can uncheck the boxes for "stream to terminal" and "show in protocol results table" to speed up processing and declutter the result table.
+
+Click Save.
 
 3. Add the XY2-100 HLA
 Click the "+" button in the "Analyzers" panel again.
@@ -48,6 +50,6 @@ Select the XY2-100 analyzer from the list.
 
 For its input, select the output of the Simple Parallel analyzer you just created.
 
-In the XY2-100 analyzer's settings, choose whether you are decoding the X, Y, or Z channel to label the decoded data correctly.
+That's it! The single XY2-100 HLA instance will now process the data from the parallel analyzer and output separate, tagged frames for the X, Y, and Z channels.
 
-You should now see the decoded XY2-100 position data on the timeline. Repeat for each channel (X, Y, Z) you wish to decode.
+
