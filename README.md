@@ -1,5 +1,6 @@
 # XY2-100_HLA
 XY2-100 High Level Analyzer for Saleae Logic 2
+
 This repository contains a Saleae High Level Analyzer (HLA) for decoding the XY2-100 serial protocol used for laser galvanometer scanners.
 
 ![Logic 2 screenshot](/resources/analyzer.png)
@@ -18,37 +19,34 @@ This High Level Analyzer requires a low-level analyzer to be configured first to
 1. Capture Signals
 Start by capturing the CLK, SYNC, and Data lines from your XY2-100 device.
 
-2. Add and Configure the Simple Parallel Analyzer
-Click on the "Analyzers" panel on the right.
+2. Click the "+" button and add a Simple Parallel analyzer.
 
-Click the "+" button and add a Simple Parallel analyzer.
+3. Configure the parallel analyzer settings as follows:
 
-Configure the parallel analyzer settings as follows:
+    - Clock: Select your CLK+ signal line.
 
-Clock: Select your CLK+ signal line.
+    - Data Lines: This is the most important step. You must add the Data and SYNC lines in the exact order shown below. You can add up to 4 lines for this analyzer.
 
-Data Lines: This is the most important step. You must add the Data and SYNC lines in the exact order shown below. You can add up to 4 lines for this analyzer.
+    - D0: Select your Data_X+ signal.
 
-D0: Select your Data_X+ signal.
+    - D1: Select your Data_Y+ signal.
 
-D1: Select your Data_Y+ signal.
+    - D2: Select your Data_Z+ signal (if you are using it).
 
-D2: Select your Data_Z+ signal (if you are using it).
+    - D3: Select your SYNC+ signal.
 
-D3: Select your SYNC+ signal.
+    - Data is Valid: Set to On falling edge of clock.
 
-Data is Valid: Set to On falling edge of clock.
+    - You can uncheck the boxes for "stream to terminal" and "show in protocol results table" to speed up processing and declutter the result table.
 
-You can uncheck the boxes for "stream to terminal" and "show in protocol results table" to speed up processing and declutter the result table.
+    - Click Save.
 
-Click Save.
+4. Add the XY2-100 HLA
+    - Click the "+" button in the "Analyzers" panel again.
 
-3. Add the XY2-100 HLA
-Click the "+" button in the "Analyzers" panel again.
+    - Select the XY2-100 analyzer from the list.
 
-Select the XY2-100 analyzer from the list.
-
-For its input, select the output of the Simple Parallel analyzer you just created.
+    - For its input, select the output of the Simple Parallel analyzer you just created.
 
 That's it! The single XY2-100 HLA instance will now process the data from the parallel analyzer and output separate, tagged frames for the X, Y, and Z channels.
 
